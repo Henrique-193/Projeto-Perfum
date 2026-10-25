@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabacaria EngSoft</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="topo">
+        Parfum
+    </div>
+
+    <header>
+        <h1>Perfumes <span>Traficados</span></h1>
+
+        <input type="text" id="busca"
+            placeholder="Quer oq bixo?">
+
+        <button onclick="buscarProduto()">Buscar</button>
+
+        <a href="#contato">Contato</a>
+
+        <button onclick="mostrarCarrinho()">
+            Carrinho (<span id="contador">0</span>)
+        </button>
+    </header>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#produtos">Contrabandos</a>
+        <a href="#sobre">SIM</a>
+        <a href="#perguntas">Perguntas Frequentes</a>
+        <a href="#contato">Fale co nois</a>
+    </nav>
+
+    <main>
+
+        <section class="banner" id="inicio">
+            <div>
+                <h2>Seu estilo.<br>
+                    <span>Seu cheiro</span>
+                </h2>
+
+                <p>
+                    Conheça nossos produtos e encontre
+                    novidades para o seu estilo.
+                </p>
+
+                <a class="botao" href="#produtos">
+                    Conhecer produtos
+                </a>
+            </div>
+
+            <img src="sisa.jpg" alt="Ambiente moderno">
+        </section>
+
+        <section class="vantagens">
+            <div>
+                <h3>Perfumes Importados</h3>
+                <p>Confira nossos destaques.</p>
+            </div>
+
+            <div>
+                <h3>Compra fácil</h3>
+                <p>Produtos Brazuca</p>
+            </div>
+
+            <div>
+                <h3>Atendimento</h3>
+                <p>Qualquer coisa chama</p>
+            </div>
+        </section>
+
+        <section class="produtos" id="produtos">
+            <h2>Produtos em destaque</h2>
+            <p>Confira alguns dos nossos produtos.</p>
+
+            <div class="lista-produtos">
+
+                <div class="produto">
+                    <img src="safeer.jpg"
+                        alt="Perfume Al Noble Safeer">
+
+                    <h3>Al Noble Safeer</h3>
+                    <p>Design moderno e elegante.</p>
+                    <strong>R$ 249,90</strong>
+
+                    <button onclick="adicionarCarrinho('Al Noble Safeer', 249.90)">
+                        Adicionar ao carrinho
+                    </button>
+                </div>
+
+                <div class="produto">
+                    <img src="images.jpg"
+                        alt="Perfume Natura Essencial">
+
+                    <h3>Natura Essencial</h3>
+                    <p>Uma fragrância para o seu dia a dia.</p>
+                    <strong>R$ 89,90</strong>
+
+                    <button onclick="adicionarCarrinho('Natura Essencial', 89.90)">
+                        Adicionar ao carrinho
+                    </button>
+                </div>
+
+                <div class="produto">
+                    <img src="Fakfar.jpg"
+                        alt="Perfume Fakhar">
+
+                    <h3>Fakhar</h3>
+                    <p>Um grande toque cítrico para seu dia a dia.</p>
+                    <strong>R$ 179,90</strong>
+
+                    <button onclick="adicionarCarrinho('Fakhar', 179.90)">
+                        Adicionar ao carrinho
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="chamada" id="sobre">
+            <h2>
+                Perfumaria de nicho e nacional,
+                com diversas opções de perfumes do seu gosto!
+            </h2>
+
+            <p>
+                Pega a perfumaria online do pai!
+            </p>
+
+            <a class="botao" href="#contato">
+                Entre em contato no whatsup
+            </a>
+        </section>
+
+       
+        <section class="perguntas" id="perguntas">
+
+            <h2>Perguntas Frequentes</h2>
+
+            <p>
+                Confira as principais dúvidas sobre nossos perfumes.
+            </p>
+
+            <details>
+                <summary>
+                    Quais tipos de perfumes vocês contrabandeiam?
+                </summary>
+
+                <p>
+                    Trabalhamos com perfumes nacionais e importados,
+                    oferecendo opções para diferentes gostos e estilos.
+                </p>
+            </details>
+
+            <details>
+                <summary>
+                    Como posso comprar um perfume?
+                </summary>
+
+                <p>
+                    Escolha o perfume , clique em
+                    Adicionar ao carrinho e confira seus produtos
+                    clicando na opção carrinho.
+                </p>
+            </details>
+            <details>
+                <summary>
+                    Como posso saber o preço dos perfumes?
+                </summary>
+                <p>
+                    Os preços estão apresentados abaixo do nome de
+                    cada perfume na seção de produtos em destaque.
+                </p>
+            </details>
+
+            <details>
+                <summary>
+                    Como posso entrar em contato com a vocês?
+                </summary>
+
+                <p>
+                    Você pode acessar a seção Fale co nois no topo
+                    da página para encontrar as opções de contato.
+                </p>
+            </details>
+
+        </section>
+
+        <section class="contato" id="contato">
+            <h2>Fale conosco</h2>
+
+            <p>
+                Tem alguma dúvida? Entre em contato com nossa equipe.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <h3>Perfumaria</h3>
+        <p>Seu estilo. Seu cheiro.</p>
+    </footer>
+
+    <script>
+        let quantidade = 0;
+        let total = 0;
+
+        function adicionarCarrinho(nome, preco) {
+            quantidade++;
+            total += preco;
+
+            document.getElementById("contador").textContent = quantidade;
+
+            alert(nome + " foi adicionado ao carrinho!");
+        }
+
+        function mostrarCarrinho() {
+            alert(
+                "Quantidade de produtos: " + quantidade +
+                "\nValor total: " +
+                total.toLocaleString("pt-BR", {
+                    style: "currency",
+                    currency: "BRL"
+                })
+            );
+        }
+
+        function buscarProduto() {
+            let busca = document.getElementById("busca")
+                .value.toLowerCase().trim();
+
+            let produtos = document.querySelectorAll(".produto");
+            let encontrados = 0;
+
+            produtos.forEach(function(produto) {
+                let nome = produto.querySelector("h3")
+                    .textContent.toLowerCase();
+
+                if (nome.includes(busca)) {
+                    produto.style.display = "block";
+                    encontrados++;
+                } else {
+                    produto.style.display = "none";
+                }
+            });
+
+            document.getElementById("produtos").scrollIntoView();
+
+            if (encontrados === 0) {
+                alert("Nenhum produto encontrado!");
+            }
+        }
+    </script>
+
+</body>
+</html>
